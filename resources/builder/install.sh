@@ -10,7 +10,7 @@
 ###########################################################
 
 name="pping"
-help_opt=" -h"
+help_opt=" -help"
 path="/usr/local/bin"
 
 mkdir -p /usr/local/bin
