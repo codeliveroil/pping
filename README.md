@@ -1,40 +1,35 @@
-pping - TCP and UDP Pinger
-==========================
+# pping - TCP and UDP Pinger
 
 pping (Protocol Ping) is a command line utility that can simulate ICMP-like pings for the TCP and UDP protocols.
 
-_Supported OSes:_ macOS, Linux, Android (arm) and Windows. pping can be built for any other OS or architecture quite easily by using Go's GOOS and GOARCH parameters.
+<img src="resources/readme/screenshot.png" alt="Screenshot" width="65%" height="65%"/>
 
-Installation
-------------
-Download the latest release for your operating system from the [releases page](https://github.com/codeliveroil/pping/releases), unzip and run `install.sh` or run the binary (`pping`) directly.
+<img src="resources/readme/demo.gif" alt="GIF demo" width="65%" height="65%"/>
 
-Usage
------
+## Installation
+
+#### macOS
+```
+brew tap codeliveroil/apps
+brew install img
+```
+
+#### Other
+Download the [latest release](../../releases/latest) for your operating system and machine architecture. If one is not available, you can easily [compile from source](#compile-from-source).
+
+## Usage
 ```
 pping -help
 ```
 
-**Examples:**
+#### Examples
 ```
 pping myserver.com 55004
 pping -p udp -w 192.168.1.9 40001
 pping -d 8.8.8.8 example.com 8080
 ```
 
-
-Screenshot
-----------
-<img src="resources/readme/screenshot.png" alt="Screenshot" width="65%" height="65%"/>
-
-
-Demo
-----
-<img src="resources/readme/demo.gif" alt="GIF demo" width="65%" height="65%"/>
-
-
-Library API for GO
-------------------
+## Library API for GO
 
 ```golang
 import "github.com/codeliveroil/pping/pinger"
@@ -63,10 +58,22 @@ if err != nil {
 fmt.Printf("Received=%d, Dropped=%d, Total=%d\n", res.Received, res.Dropped, res.Received+res.Dropped)
 ```
 
-Compile from source
--------------------
+## Compile from source
 
+### Setup
+1. Install [Go](https://golang.org/)
+1. Clone this repository
+
+### Build for your current platform
 ```
-go get github.com/codeliveroil/pping
 make
+make install
 ```
+
+### Cross compile for a different platform
+1. Build
+	```
+	make platform
+	```
+1. Follow the prompts and select a platform
+1. The binary will be available in the `build` folder

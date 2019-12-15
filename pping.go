@@ -17,6 +17,8 @@ import (
 	"github.com/codeliveroil/pping/pinger"
 )
 
+const version = "1.1"
+
 func main() {
 	args := os.Args
 	flags := niceflags.NewFlags(
@@ -48,7 +50,7 @@ func main() {
 
 	argc := len(args)
 	if *version {
-		fmt.Println("1.0")
+		fmt.Println(version)
 		os.Exit(0)
 	}
 
