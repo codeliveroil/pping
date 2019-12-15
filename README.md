@@ -11,7 +11,7 @@ pping (Protocol Ping) is a command line utility that can simulate ICMP-like ping
 #### macOS
 ```
 brew tap codeliveroil/apps
-brew install img
+brew install pping
 ```
 
 #### Other
